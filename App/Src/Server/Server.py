@@ -1,15 +1,11 @@
-from Organization import Company
-from Organization.Employee import Employee
-from Organization.Client import Client
-from Organization.Person import Person
-
+from organization import company, employee, client, person
 from socket import socket
 from threading import Thread
 
 HOST = ""
 PORT = 12345
 
-Corp = Company("Brandon Corp")
+Corp = company("Brandon Corp")
 
 class Server(Thread):
 

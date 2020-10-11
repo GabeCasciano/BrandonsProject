@@ -103,7 +103,7 @@ def signal_server(emp_number:int):
 if __name__ == "__main__":
     vs = initCamera()
     running = True
-
+    
     while running:
         im = vs.read()[1]
         cv2.waitKey(2)
