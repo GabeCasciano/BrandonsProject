@@ -1,7 +1,7 @@
-from .Organization.Company import Company
-from .Organization.Employee import Employee
-from .Organization.Client import Client
-from .Organization.Person import Person
+from Organization import Company
+from Organization.Employee import Employee
+from Organization.Client import Client
+from Organization.Person import Person
 
 from socket import socket
 from threading import Thread

@@ -1,7 +1,6 @@
 from datetime import datetime
 
-
-class Appointment:
+class appointment:
     def __init__(self, date: datetime, employee_number: int, customer_number: int, number: int):
         self.date = date
         self.employee = employee_number
@@ -20,17 +19,17 @@ class Appointment:
         return f"{self.date.strftime('%c')}:{self.employee}:{self.customer}"
 
 
-class Schedule:
+class schedule:
 
     def __init__(self):
         self.apts = []
         self.next = None
 
-    def book_apt(self, date: datetime = None, employee: int = None, customer: int = None, apt: Appointment = None):
+    def book_apt(self, date: datetime = None, employee: int = None, customer: int = None, apt: appointment = None):
         if apt != None:
             self.apts.append(apt)
         else:
-            apt = Appointment(date, employee, customer, self.apts.__len__() + 1)
+            apt = appointment(date, employee, customer, self.apts.__len__() + 1)
         self.apts.append(apt)
         return apt
 

@@ -1,4 +1,4 @@
-####--#### Client Commands ####--####
+####--#### client Commands ####--####
 
 positive ak command -> <command> == "posak"
 negative ak command -> <command> == "negak"
@@ -12,13 +12,13 @@ negative ak command -> <command> == "negak"
     <data> - 0
     <specifier> - 0
 
-3 - Get Person Info
+3 - Get person Info
     <specifer> ->
         1 - Name
         2 - Number
     <data> - name or number
 
-4 - Get Person Present
+4 - Get person Present
     <specifier> ->
         1 - Name
         2 - Number

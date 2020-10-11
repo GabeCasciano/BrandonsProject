@@ -1,6 +1,6 @@
-from .Schedule import Schedule, Appointment
+from .schedule import schedule, appointment
 
-class Person:
+class person:
 
     def __init__(self, name: str = None, age: int = None, organization_number: int = None):
         self.name = name
@@ -9,7 +9,7 @@ class Person:
         if self.organization_number is None:
             self.organization_number = -1
         self.present = 0
-        self.sch = Schedule()
+        self.sch = schedule()
 
     def set_organization_number(self, num: int):
         self.organization_number = num
@@ -29,7 +29,7 @@ class Person:
     def complete_apt(self, apt_number: int):
         self.sch.complete_apt(apt_number)
 
-    def book_apt(self, apt: Appointment):
+    def book_apt(self, apt: appointment):
         self.sch.book_apt(apt)
 
     def format_csv(self):

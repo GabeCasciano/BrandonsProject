@@ -1,12 +1,11 @@
-from .Employee import Employee
-from .Person import Person
-from .Client import Client
-from .Schedule import Appointment, Schedule
+from .employee import employee
+from .person import person
+from .client import client
+from .schedule import appointment, schedule
 
 from datetime import datetime
-import csv
 
-class Company:
+class company:
 
     def __init__(self, name: str):
         self.name = name
@@ -14,35 +13,35 @@ class Company:
         self.clients = []
         self.org_number = 1
 
-    def add_employee(self, name: str = None, age: int = None, emp: Person = None):
+    def add_employee(self, name: str = None, age: int = None, emp: person = None):
         if emp != None:
             for e in self.employees:
                 if e.organization_number == emp.organization_number:
                     return False
             self.employees.append(emp)
         else:
-            emp = Employee(name, age, self.org_number)
+            emp = employee(name, age, self.org_number)
             self.org_number += 1
             self.employees.append(emp)
 
-    def add_customer(self, name: str = None, age: int = None, cust: Person = None):
+    def add_customer(self, name: str = None, age: int = None, cust: person = None):
         if cust != None:
             for c in self.clients:
                 if c.organization_number == cust.organization_number:
                     return False
             self.clients.append(cust)
         else:
-            cust = Client(name, age, self.org_number)
+            cust = client(name, age, self.org_number)
             self.org_number += 1
             self.employees.append(cust)
 
-    def book_employee(self,  date: datetime, employee: Employee, client: Client):
+    def book_employee(self, date: datetime, employee: employee, client: client):
         for e in self.employees:
             if e.organization_number == employee.organization_number:
                 e.book(date, client)
                 break
 
-    def toggle_location(self, person: Person):
+    def toggle_location(self, person: person):
         for e in self.employees:
             if e.organization_number == person.organization_number:
                 if e.present == False:
@@ -85,40 +84,3 @@ class Company:
                     return c
         return None
 
-    def save(self):
-        with open("Data/employees.csv", "w") as file:
-            for e in self.employees:
-                file.write(e.format_csv_w_sch())
-
-        with open("Data/customers.csv", "w") as file:
-            for c in self.clients:
-                file.write(c.format_csv_w_sch())
-
-    def load(self):
-        with open("Data/employees.csv", "r", newline='') as file:
-            reader = csv.reader(file, delimiter=",")
-
-            for row in reader:
-                if row[1] > self.org_number:
-                    self.org_number = row[1]
-
-                e = Employee(row[1], row[2], row[0])
-                sch = row[4].split(";")
-                for s in sch:
-                    d = s.split(":")
-                    if d.__len__() > 0:
-                        e.sch.book_apt(datetime.strptime(d[0], '%c'), d[1], d[2])
-
-        with open("Data/customers.csv", "r", newline='') as file:
-            reader = csv.reader(file, delimiter=",")
-
-            for row in reader:
-                if row[1] > self.org_number:
-                    self.org_number = row[1]
-
-                c = Client(row[1], row[2], row[0])
-                sch = row[4].split(";")
-                for s in sch:
-                    d = s.split(":")
-                    if d.__len__() > 0:
-                        c.sch.book_apt(datetime.strptime(d[0], '%c'), d[1], d[2])
