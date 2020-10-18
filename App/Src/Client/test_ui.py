@@ -22,6 +22,7 @@ class demo_window:
         self.user6_name_var = StringVar()
         self.user7_name_var = StringVar()
         self.user8_name_var = StringVar()
+        self.user9_name_var = StringVar()
         self.user1_name = Label(tk, textvariable=self.user1_name_var, fg = "red")
         self.user2_name = Label(tk, textvariable=self.user2_name_var, fg = "red")
         self.user3_name = Label(tk, textvariable=self.user3_name_var, fg = "red")
@@ -30,6 +31,7 @@ class demo_window:
         self.user6_name = Label(tk, textvariable=self.user6_name_var, fg = "red")
         self.user7_name = Label(tk, textvariable=self.user7_name_var, fg = "red")
         self.user8_name = Label(tk, textvariable=self.user8_name_var, fg = "red")
+        self.user9_name = Label(tk, textvariable=self.user9_name_var, fg = "red")
         self.user1_name_var.set("Gabe")
         self.user2_name_var.set("Brandon")
         self.user3_name_var.set("Anas")
@@ -38,6 +40,7 @@ class demo_window:
         self.user6_name_var.set("Gavin")
         self.user7_name_var.set("Vivian")
         self.user8_name_var.set("Aiden")
+        self.user9_name_var.set("Derek")
 
         self.user1_name.grid(row=0, column=0)
         self.user2_name.grid(row=1, column=0)
@@ -47,6 +50,7 @@ class demo_window:
         self.user6_name.grid(row=5, column=0)
         self.user7_name.grid(row=6, column=0)
         self.user8_name.grid(row=7, column=0)
+        self.user9_name.grid(row=8, column=0)
 
 if __name__ == "__main__":
     root = Tk()
