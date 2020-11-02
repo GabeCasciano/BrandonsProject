@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name="scheduler",
-      version='1.01',
+      version='2.01',
       description='scheduler and shitty scheduler',
       packages=["scheduler"],
       install_requires=["datetime"],
