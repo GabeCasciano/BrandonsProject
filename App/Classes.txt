@@ -1,0 +1,59 @@
+Classes:
+
+Person:
+    objects:
+    - ID <int>
+    - Name <string>
+    - here <boolean>
+    functions:
+    - <string> serialize(self, ID, Name, here)
+    - <Person> unserialize(self, cereal)
+
+People:
+    objects
+    - people <list>(Person)
+    - name
+
+    functions:
+    - sort_by_id(self)
+    - sort_by_name(self)
+    - find(self, people)
+
+PDU:
+    objects
+
+    - type <char>
+    - data <string>
+
+    functions:
+    - <string> serialize(self, type, data)
+    - <PDU> unserialize(self, cereal)
+
+
+Jetson(Thread)
+    class:
+        Identifier - CV2 casscaded classifier
+        Classifier - TF model
+
+    objects
+    - people <People>
+    - camera
+    - identifier (finds the face)
+    - classifier (deteremines who its looking at)
+    - udp_sock
+    - tcp_sock
+    - id_key
+
+    functions:
+    - init
+    - <img> find_face(self) - this uses tje identifier
+    - <int or Person> classify_person - this uses the classifier
+    - de_init
+
+Server(Thread)
+
+    objects:
+    - people
+    - udp_sock
+    - tcp_sock
+    - id_key

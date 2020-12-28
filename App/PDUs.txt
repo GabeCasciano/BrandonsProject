@@ -1,0 +1,24 @@
+PDUs:
+
+I - Identified
+    - ID <int>; Name <string>
+
+P - Persons Info
+    - ID <int>; Name <string> (both are optional, but atleast 1 is required, position is important)
+
+Note: this will be initially sent from the client to the server, the server will then respond with
+the following sequence of PDUs
+
+O - Organization Info
+    - Num of People <int>
+
+    and then a series of P PDUs
+
+A - Ack
+
+E - Error
+    - error_code <int>
+
+    1. could not find person with matching ID
+    2. could not find person with matching name
+    3.

@@ -1,0 +1,24 @@
+ --- Jetson:
+The jetson is responsible for identifying when it sees a person, and classifying
+the person that it has seen.
+
+The jetson begins by creating a udp socket, and connects to the server, it will first
+associate its key with the server, the key will be used at the start of every udp
+packet to ensure that the server can tell who is communicating to it.
+
+
+ --- Server:
+The server is responsible for keeping track of who is on site, and communicating
+with the jetson and the client.
+
+The server will begin by loading in its data from a file, it will then listen to its
+udp socket which the jetson and client will use to communicate to the server. The server
+will listen for the key of associated jetsons, it will associate a tag with the specified
+IP addr so the jetson can be identifier.
+
+When the server receives a correct ID from an associated jetson it will update the
+specified person on whether or not they are present on site. If the ID does not exist
+the server will create a new Person and keep track of them.
+
+When the server will also service the client, the client will request peoples information
+over the same udp socket, such that they can indicate to the end user who is on site.
